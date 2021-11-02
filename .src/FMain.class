@@ -1,0 +1,54 @@
+' Gambas class file
+
+Public pathDir As String
+Public Files As String[]
+Public counter As Integer
+
+Private Sub AbrirArchivo()
+Dim respuesta As Integer
+Dim File As String
+  
+  pathDir = DirBox1.Value
+  Files = Dir(pathDir, "*.jpg")
+  Files.Insert(Dir(pathDir, "*.png"))
+  
+  If pathDir == "" Then
+    Message.Title = "Advertencia"
+    respuesta = Message.Info("No ha seleccionado un directorio", "Aceptar")
+  Else If Files.Length == 0 Then
+     respuesta = Message.Info("No hay imagenes en este directorio", "Aceptar")
+   Else
+      ImageView1.Image = Image.Load(pathDir & "/" & Files[0])
+  Endif
+End
+
+Private Sub siguienteImagen()
+  
+  If counter <> (Files.Length - 1) Then
+    ImageView1.Image = Image.Load(pathDir & "/" & Files[counter + 1])
+    counter = counter + 1
+  Endif
+  
+End
+
+Private Sub anteriorImagen()
+  If counter <> 0 Then
+    ImageView1.Image = Image.Load(pathDir & "/" & Files[counter - 1])
+    counter = counter - 1
+  Endif
+  
+End
+
+
+Public Sub bAbrir_Click()
+   AbrirArchivo()
+End
+
+
+Public Sub bSiguiente_Click()
+  siguienteImagen()
+End
+
+Public Sub bAnterior_Click()
+  anteriorImagen()
+End

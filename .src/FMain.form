@@ -1,0 +1,23 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,116,82)
+  { DirBox1 DirBox
+    MoveScaled(2,3,51,4)
+  }
+  { bAbrir Button
+    MoveScaled(55,3,16,4)
+    Text = ("Abrir")
+  }
+  { bSiguiente Button
+    MoveScaled(98,2,16,4)
+    Text = ("Siguiente")
+  }
+  { bAnterior Button
+    MoveScaled(81,2,16,4)
+    Text = ("Anterior")
+  }
+  { ImageView1 ImageView
+    MoveScaled(2,9,112,70)
+  }
+}
